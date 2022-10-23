@@ -73,14 +73,22 @@ h1{
     top:100px;
     right:20px; 
     color:white;
-    text-shadow: 2px 2px black;
+    text-shadow: 4px 2px black;
 }
 .effect-overlay{
-    filter: opacity(1);
-}
+    filter: opacity(1); 
+ } 
+
 .row{
     background-color: black;
 }
 .imgpiccole:hover{
     filter: opacity(1);
+   
+}
+.imgpiccole:target{
+    filter:opacity(1)
+}
+main{
+    margin-top:-20px
 }

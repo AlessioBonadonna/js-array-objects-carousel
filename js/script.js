@@ -71,14 +71,15 @@ const imgPiccola = document.getElementsByClassName("imgpiccole");
 let cont = 0;
 for (var i = 0; i < imgPiccola.length; i++) {
     imgPiccola[i].addEventListener('click', function (e) {
+    
         console.log(e.target.getAttribute("id"));
         cont = e.target.id;
         imagine.src = images[e.target.id].url;
         titolo.textContent=images[cont].title;
         desc.textContent=images[cont].description;
-       
-        e.target.classList.add("effect-overlay");
         e.target.classList.remove("effect-overlay");
+         e.target.classList.add("effect-overlay");
+      
 
     }, false);
 
@@ -120,6 +121,8 @@ btnB.addEventListener('click', function () {
 let avantiBtn=document.getElementById('avantiBtn');
 let btnAvantiTime;
 avantiBtn.addEventListener('click',function(){
+    clearInterval(btnIndietroTime);
+    indietroBtn.classList.remove("pointer-none")
     btnAvantiTime=  setInterval(function () {
                 if (cont == 0) {
                     cont = 4;
@@ -145,6 +148,8 @@ avantiBtn.addEventListener('click',function(){
 let  indietroBtn=document.getElementById('indietroBtn');
 let btnIndietroTime;
 indietroBtn.addEventListener('click',function(){
+    clearInterval(btnAvantiTime);
+    avantiBtn.classList.remove("pointer-none")
     btnIndietroTime=  setInterval(function () {
                 if (cont == 4) {
                     cont = 0;
@@ -162,41 +167,17 @@ indietroBtn.addEventListener('click',function(){
                 indietroBtn.classList.add("pointer-none")
         
             }
-        
+            
         
                 , 2000)});
 
 
 
-
-// const indietroSolo = document.getElementById("indietroBtn");
-// let indietro;
-// avantiSolo.addEventListener('click', function () {
-//     indietro = setInterval(function () {
-//         if (cont == 4) {
-//             cont = 0;
-//         } else {
-//             cont++;
-//         }
-
-//         imagine.src = images[cont].url;
-//         titolo.textContent=images[cont].title;
-//         desc.textContent=images[cont].description;
-
-//         imgPiccola[cont].classList.add("effect-overlay");
-//         imgPiccola[cont].classList.remove("effect-overlay");
-//         avantiSolo.classList.add("pointer-none")
-
-//     }
-
-
-//         , 2000)
-// });
-//stop
 const stoppe = document.getElementById("stop");
 stoppe.addEventListener('click', function () {
     clearInterval(btnAvantiTime);
     avantiBtn.classList.remove("pointer-none")
     clearInterval(btnIndietroTime);
+    indietroBtn.classList.remove("pointer-none")
 })
 
