@@ -78,6 +78,7 @@ for (var i = 0; i < imgPiccola.length; i++) {
         desc.textContent=images[cont].description;
        
         e.target.classList.add("effect-overlay");
+        e.target.classList.remove("effect-overlay");
 
     }, false);
 
@@ -97,6 +98,8 @@ btnA.addEventListener('click', function () {
      desc.textContent=images[cont].description;
 
     imgPiccola[cont].classList.add("effect-overlay");
+    imgPiccola[cont].classList.remove("effect-overlay");
+    
 }, false);
 //bottone che va avanti 
 const btnB = document.getElementById('indietro');
@@ -111,56 +114,89 @@ btnB.addEventListener('click', function () {
     titolo.textContent=images[cont].title;
     desc.textContent=images[cont].description;
     imgPiccola[cont].classList.add("effect-overlay");
+    imgPiccola[cont].classList.remove("effect-overlay");
 }, false);
 //funzione che va avanti da sola
-const avantiSolo = document.getElementById("time");
-let avanti;
-avantiSolo.addEventListener('click', function () {
-    avanti = setInterval(function () {
-        if (cont == 0) {
-            cont = 4;
-        } else {
-            cont--;
-        }
+let avantiBtn=document.getElementById('avantiBtn');
+let btnAvantiTime;
+avantiBtn.addEventListener('click',function(){
+    btnAvantiTime=  setInterval(function () {
+                if (cont == 0) {
+                    cont = 4;
+                } else {
+                    cont--;
+                }
+        
+                imagine.src = images[cont].url;
+                titolo.textContent=images[cont].title;
+                desc.textContent=images[cont].description;
+        
+                imgPiccola[cont].classList.add("effect-overlay");
+                imgPiccola[cont].classList.remove("effect-overlay");
+                
+                avantiBtn.classList.add("pointer-none")
+        
+            }
+        
+        
+                , 2000)});
+        
+ 
+let  indietroBtn=document.getElementById('indietroBtn');
+let btnIndietroTime;
+indietroBtn.addEventListener('click',function(){
+    btnIndietroTime=  setInterval(function () {
+                if (cont == 4) {
+                    cont = 0;
+                } else {
+                    cont++;
+                }
+        
+                imagine.src = images[cont].url;
+                titolo.textContent=images[cont].title;
+                desc.textContent=images[cont].description;
+        
+                imgPiccola[cont].classList.add("effect-overlay");
+                imgPiccola[cont].classList.remove("effect-overlay");
+                
+                indietroBtn.classList.add("pointer-none")
+        
+            }
+        
+        
+                , 2000)});
 
-        imagine.src = images[cont].url;
-        titolo.textContent=images[cont].title;
-        desc.textContent=images[cont].description;
-
-        imgPiccola[cont].classList.add("effect-overlay");
-        avantiSolo.classList.add("pointer-none")
-
-    }
 
 
-        , 2000)
-});
-const indietroSolo = document.getElementById("time");
-let indietro;
-avantiSolo.addEventListener('click', function () {
-    indietro = setInterval(function () {
-        if (cont == 4) {
-            cont = 0;
-        } else {
-            cont++;
-        }
 
-        imagine.src = images[cont].url;
-        titolo.textContent=images[cont].title;
-        desc.textContent=images[cont].description;
+// const indietroSolo = document.getElementById("indietroBtn");
+// let indietro;
+// avantiSolo.addEventListener('click', function () {
+//     indietro = setInterval(function () {
+//         if (cont == 4) {
+//             cont = 0;
+//         } else {
+//             cont++;
+//         }
 
-        imgPiccola[cont].classList.add("effect-overlay");
-        avantiSolo.classList.add("pointer-none")
+//         imagine.src = images[cont].url;
+//         titolo.textContent=images[cont].title;
+//         desc.textContent=images[cont].description;
 
-    }
+//         imgPiccola[cont].classList.add("effect-overlay");
+//         imgPiccola[cont].classList.remove("effect-overlay");
+//         avantiSolo.classList.add("pointer-none")
+
+//     }
 
 
-        , 2000)
-});
+//         , 2000)
+// });
 //stop
 const stoppe = document.getElementById("stop");
 stoppe.addEventListener('click', function () {
-    clearInterval(indietro);
-    avantiSolo.classList.remove("pointer-none")
+    clearInterval(btnAvantiTime);
+    avantiBtn.classList.remove("pointer-none")
+    clearInterval(btnIndietroTime);
 })
 
