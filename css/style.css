@@ -81,6 +81,9 @@ h1{
 }
 .effect-overlay{
     filter: opacity(1); 
+    border: 5px solid #0b8a66;
+ 
+    
  } 
 
 .row{
@@ -88,6 +91,7 @@ h1{
 }
 .imgpiccole:hover{
     filter: opacity(1);
+    filter:blur(0.8px)
    
 }
 .imgpiccole:target{
