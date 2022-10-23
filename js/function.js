@@ -12,7 +12,7 @@ function imgPiccole() {
          col.className = 'col';
       
         for(let key in value) {
-            console.log(key);
+            //console.log(key);
             col.innerHTML = `
             
             <img  class="imgpiccole"  id="${contatore}" src="${value.url}" alt="${value.url}">
@@ -22,7 +22,7 @@ function imgPiccole() {
             document.querySelector('.row').append(col);
            
         } contatore++;
-        console.log(contatore);
+        //console.log(contatore);
     }
 }
 

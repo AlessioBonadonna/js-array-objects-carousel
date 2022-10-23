@@ -16,7 +16,7 @@
 
 // BONUS 3:
 // Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.
-console.log("ok");
+//console.log("ok");
 
 //array
 const images = [
@@ -67,18 +67,28 @@ imgPiccole();
 
 const imgPiccola = document.getElementsByClassName("imgpiccole");
 
+imgPiccola[0].classList.add('effect-overlay');
+
+
 
 let cont = 0;
 for (var i = 0; i < imgPiccola.length; i++) {
     imgPiccola[i].addEventListener('click', function (e) {
-    
+        
         console.log(e.target.getAttribute("id"));
         cont = e.target.id;
         imagine.src = images[e.target.id].url;
         titolo.textContent=images[cont].title;
         desc.textContent=images[cont].description;
-        e.target.classList.remove("effect-overlay");
+        console.log(imgPiccola);
+        
+        let overLay =document.querySelector(".effect-overlay");
+        console.log(overLay)
+           overLay.classList.remove("effect-overlay");
+           
          e.target.classList.add("effect-overlay");
+
+         //e.target.classList.remove("effect-overlay");
       
 
     }, false);
@@ -97,9 +107,12 @@ btnA.addEventListener('click', function () {
     imagine.src = images[cont].url;
     titolo.textContent=images[cont].title;
      desc.textContent=images[cont].description;
-
+     let overLay =document.querySelector(".effect-overlay");
+     console.log(overLay)
+        overLay.classList.remove("effect-overlay");
+        
     imgPiccola[cont].classList.add("effect-overlay");
-    imgPiccola[cont].classList.remove("effect-overlay");
+  ;
     
 }, false);
 //bottone che va avanti 
@@ -114,8 +127,11 @@ btnB.addEventListener('click', function () {
     imagine.src = images[cont].url;
     titolo.textContent=images[cont].title;
     desc.textContent=images[cont].description;
+    let overLay =document.querySelector(".effect-overlay");
+     console.log(overLay)
+        overLay.classList.remove("effect-overlay");
     imgPiccola[cont].classList.add("effect-overlay");
-    imgPiccola[cont].classList.remove("effect-overlay");
+    
 }, false);
 //funzione che va avanti da sola
 let avantiBtn=document.getElementById('avantiBtn');
@@ -133,16 +149,18 @@ avantiBtn.addEventListener('click',function(){
                 imagine.src = images[cont].url;
                 titolo.textContent=images[cont].title;
                 desc.textContent=images[cont].description;
-        
+                let overLay =document.querySelector(".effect-overlay");
+                console.log(overLay)
+                   overLay.classList.remove("effect-overlay");
                 imgPiccola[cont].classList.add("effect-overlay");
-                imgPiccola[cont].classList.remove("effect-overlay");
+               
                 
                 avantiBtn.classList.add("pointer-none")
         
             }
         
         
-                , 2000)});
+                , 3000)});
         
  
 let  indietroBtn=document.getElementById('indietroBtn');
@@ -160,16 +178,18 @@ indietroBtn.addEventListener('click',function(){
                 imagine.src = images[cont].url;
                 titolo.textContent=images[cont].title;
                 desc.textContent=images[cont].description;
-        
+                let overLay =document.querySelector(".effect-overlay");
+                console.log(overLay)
+                   overLay.classList.remove("effect-overlay");
                 imgPiccola[cont].classList.add("effect-overlay");
-                imgPiccola[cont].classList.remove("effect-overlay");
+            
                 
                 indietroBtn.classList.add("pointer-none")
         
             }
             
         
-                , 2000)});
+                , 3000)});
 
 
 
